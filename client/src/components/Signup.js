@@ -1,12 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import '../App.css';
-import { Card, Button, Form } from 'semantic-ui-react'
-import { Popup } from 'reactjs-popup';
 import '../index.css'
 import 'reactjs-popup/dist/index.css';
 import { useHistory } from "react-router-dom";
-import { UsersIcon } from '@heroicons/react/outline';
-
 
 
 function SignUp ({login, users, setCurrentUser }) {
@@ -50,10 +46,11 @@ function SignUp ({login, users, setCurrentUser }) {
                   alert (data.error)}
               else
                 {login (true)
-                setCurrentUser([...users,data]);
-                history.push('/home')}
-            })
-              
+                setCurrentUser([...users, data]);
+                history.push('/sign-in')}
+
+              })
+            
     }
 
 
@@ -69,7 +66,7 @@ function SignUp ({login, users, setCurrentUser }) {
                 </div>
             </div>
             <div className="mt-5 md:mt-0 md:col-span-2">
-                <form action="/home" method="POST">
+                <form >
                     <div className="shadow overflow-hidden sm:rounded-md">
                         <div className="px-5 py-6 bg-white sm:p-7">
                         <h3 className="p-7 text-2xl font-medium leading-6 text-gray-900">Account Information</h3>
@@ -96,7 +93,7 @@ function SignUp ({login, users, setCurrentUser }) {
                             </div>
                         </div>
                         <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                            <button onSubmit={handleSubmit} type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <button onSubmit={handleSubmit}  type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Save
                             </button>
                         </div>

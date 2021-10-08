@@ -12,6 +12,12 @@ class UsersController < ApplicationController
   def show
     render json: @user
   end
+
+  # GET /users/:id
+  def userid 
+    user = User.find(params[:id])
+    render json: @user
+  end
   
 
   # POST /signup
@@ -38,8 +44,9 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/:id
-  def destroy
-    @user.destroy
+  def destroy 
+    user = User.find(params[:id])
+    user.destroy
   end
 
   private

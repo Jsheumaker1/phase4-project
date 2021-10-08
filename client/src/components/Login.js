@@ -45,7 +45,7 @@ export default function Login({login, setUser, setCurrentUser}) {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"/>
+          <img className="mx-auto h-12 w-auto" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEr-GQDLWc&#x2F;view?embed"/>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Welcome, please sign in!</h2>
         </div>
           <form className="mt-8 space-y-6">
