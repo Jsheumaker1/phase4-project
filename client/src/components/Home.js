@@ -5,7 +5,7 @@ import Invoices from "./Invoices"
 
 
 
-export default function Home(handleUserLogOut) {
+export default function Home({handleUserLogOut}) {
 
     const navigation = [
       { name: 'Invoices', href: '#', current: true },
@@ -129,7 +129,7 @@ export default function Home(handleUserLogOut) {
                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <Menu.Item>
                             {({ active }) => (
-                              <a
+                              <a 
                                 href="#"
                                 className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                               >
@@ -149,8 +149,8 @@ export default function Home(handleUserLogOut) {
                           </Menu.Item>
                           <Menu.Item>
                             {({ active }) => (
-                              <a onClick={handleUserLogOut}
-                                href="#"
+                              <a  onClick={handleUserLogOut}
+                                href="/login"
                                 className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                               >
                                 Sign out

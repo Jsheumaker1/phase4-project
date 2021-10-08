@@ -8,7 +8,7 @@ export default function Invoices(){
     useEffect(()=>{
         fetch('http://localhost:3000/jobs')
         .then(res=>res.json())
-        .then(setJobsInfo)
+        .then(jobsInfo)
     },[])
 
     return(

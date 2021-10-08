@@ -23,10 +23,7 @@ function App() {
         <div className="auth-wrapper">
           <div className="auth-inner">
             <Switch>
-              <Route path="/signup" component={()=><Signup user = {setUser} login = {setLogin}/>} />
-              <Route path="/login" component={()=><Login login = {setLogin} setUser={setUser} currentUser={setCurrentUser} />} />
-              <Route path= '/home' component={() =><Home user = {setUser} />}/>
-              <Route path= '/account' component={() =><Account login = {setLogin} currentUser={setCurrentUser}  />}/>
+              <Route path="/login" component={()=><Login login = {setLogin} currentUser={setCurrentUser}  setUser={setUser} />} />
               <Route path='/' component={()=><Login login = {setLogin} setUser={setUser}/>} />
             </Switch>
           </div>
@@ -37,7 +34,23 @@ function App() {
 }
 
   return (
-    <Login login = {setLogin} currentUser={setCurrentUser}  setUser={setUser} />
+    <Router>
+    <div className="App">
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <Switch>
+            <Route path="/login" component={()=><Login login = {setLogin} currentUser={setCurrentUser}  setUser={setUser} />} />
+            <Route path="/signup" component={()=><Signup user = {setUser} login = {setLogin}/>} />
+            <Route path="/login" component={()=><Login login = {setLogin} setUser={setUser} setCurrentUser={setCurrentUser} />} />
+            <Route path= '/home' component={() =><Home user = {setUser} login = {setLogin} />}/>
+            <Route path= '/account' component={() =><Account login = {setLogin} currentUser={setCurrentUser}  />}/>
+            <Route path='/' component={()=><Login login = {setLogin} setUser={setUser}/>} />
+          
+          </Switch>
+        </div>
+      </div>
+    </div>
+  </Router>
   );
 
 }

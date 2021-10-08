@@ -21,7 +21,7 @@ function Account ({login, setCurrentUser}) {
     
     return (
 
-    <Home handleUserLogOut = {this.handleUserLogOut} />
+    <Home handleUserLogOut = {handleUserLogOut} />
 
     )            
 }
