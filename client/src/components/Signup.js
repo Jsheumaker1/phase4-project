@@ -5,10 +5,11 @@ import { Popup } from 'reactjs-popup';
 import '../index.css'
 import 'reactjs-popup/dist/index.css';
 import { useHistory } from "react-router-dom";
+import { UsersIcon } from '@heroicons/react/outline';
 
 
 
-function SignUp ({user, setUser}) {
+function SignUp ({login, users, setCurrentUser }) {
 
     const history = useHistory();  
 
@@ -26,7 +27,7 @@ function SignUp ({user, setUser}) {
             ...formData, [name]:value
     })}
 
-    const handleSubmit = async (e) =>{
+    const handleSubmit = (e) =>{
         e.preventDefault()
         const newForm = {
             name: formData.name,
@@ -35,7 +36,7 @@ function SignUp ({user, setUser}) {
             password: formData.password
         }
         
-        const res = await fetch('http://localhost:3000/signup', {
+        fetch('http://localhost:3000/signup', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -43,9 +44,16 @@ function SignUp ({user, setUser}) {
             },
             body: JSON.stringify(newForm)
               })
-              const parsedBody = await res.json();
-              setUser( parsedBody);
-              history.push('/home')
+              .then(res=>res.json())
+              .then(data=>{
+              if (data.error){
+                  alert (data.error)}
+              else
+                {login (true)
+                setCurrentUser([...users,data]);
+                history.push('/home')}
+            })
+              
     }
 
 
@@ -61,7 +69,7 @@ function SignUp ({user, setUser}) {
                 </div>
             </div>
             <div className="mt-5 md:mt-0 md:col-span-2">
-                <form action="#" method="POST">
+                <form action="/home" method="POST">
                     <div className="shadow overflow-hidden sm:rounded-md">
                         <div className="px-5 py-6 bg-white sm:p-7">
                         <h3 className="p-7 text-2xl font-medium leading-6 text-gray-900">Account Information</h3>

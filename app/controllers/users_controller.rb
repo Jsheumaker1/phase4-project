@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
 
     newUser = User.new(user_params)
-    
+    byebug
     if newUser.save
 
       render json:newUser

@@ -7,9 +7,9 @@ import Signup from "./Signup"
 
 
 
-export default function Login({login, setUser}) {
+export default function Login({login, setUser, setCurrentUser}) {
 
-  const [usernameForLogin, setUsernameForLogin]= useState("")
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory()
@@ -31,10 +31,10 @@ export default function Login({login, setUser}) {
       .then(res=>res.json())
       .then(data=>{
         if (data.error){
-          alert(data.error)}
-          else
-          {login(true)
-          setUser(data)
+            alert(data.error)}
+        else
+            {login(true)
+            setUser(data)
             history.push('/home')}
       })
   }

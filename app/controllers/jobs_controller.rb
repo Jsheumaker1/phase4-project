@@ -1,11 +1,11 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :update, :destroy]
+  before_action only: [:show, :update, :destroy]
 
   # GET /jobs
   def index
-    @jobs = Job.all
+    jobs = Job.all
 
-    render json: @jobs
+    render json: jobs
   end
 
   # GET /jobs/1
